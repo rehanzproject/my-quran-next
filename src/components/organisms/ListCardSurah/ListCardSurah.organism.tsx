@@ -1,21 +1,29 @@
+import useSWR from "swr";
+import { fetcher } from "@/config/fetcherHelper";
 import Link from "next/link";
-import React from "react";
 
-export default function ListCardSurah({ chapters }: { chapters: string[] }) {
+export default function ListCardSurah() {
+  // const { data, isLoading } = useSWR(
+  //   `https://api.quran.com/api/v4/verses/by_chapter/1?language=id&words=true&page=1&per_page=10`,
+  //   fetcher
+  // );
+const data : string[] = []
   return (
-    Array.isArray(chapters) &&
-    chapters.map((list: any) => (
+    Array.isArray(data) &&
+    data.map((list: any) => (
       <div key={list.id} className="border-y py-4 text-sm">
         <Link
           href={{
-            pathname: `dashboard/${list.name_simple}`,
+            pathname: `/dashboard/${list.name_simple}`,
             query: { id: list.id },
           }}
         >
           <div className="flex items-center gap-4">
             <p className="p-1 px-2 rounded-full border">{list.id}</p>
             <p className="text-base font-bold">{list.name_simple}</p>
-            <p className="mx-auto">{list.name_arabic} </p>
+            <p className="mx-auto py-2 text-purple-800 text-lg">
+              {list.name_arabic}{" "}
+            </p>
           </div>
 
           <div className="flex gap-3 px-10 text-slate-500">

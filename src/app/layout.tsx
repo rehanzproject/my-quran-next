@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <div className="flex justify-center mx-auto w-[26rem] h-screen border border-red-300">
+        <div className="flex justify-center mx-auto w-[26rem] h-screen">
           {children}
         </div>
       </body>
