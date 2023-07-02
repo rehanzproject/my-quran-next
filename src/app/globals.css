@@ -2,26 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.scroll-container {
+    overflow-y: auto;
+    height: 20rem;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent; /* Adjust color if needed */
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+  
+  .scroll-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .scroll-container::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+  
+  .scroll-container::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  @media only screen and (max-width: 425px) {
+.scroll-container {
+      height: 25rem;
+    }
+  }
